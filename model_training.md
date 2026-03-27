@@ -1,5 +1,3 @@
-This is how I built a stroke prediction app from scratch.
-
 ### Setup
 
 Load the libraries.
