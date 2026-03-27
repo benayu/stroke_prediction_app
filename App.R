@@ -1,12 +1,4 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
-#
-
+# Prepare the models from RDS files.
 cart_model <- readRDS("./data//cart.rds")
 knn_model <- readRDS("./data//knn.rds")
 logreg_model <- readRDS("./data//logreg.rds")
@@ -14,10 +6,13 @@ naivebayes_model <- readRDS("./data//naivebayes.rds")
 rf_model <- readRDS("./data//rf.rds")
 svm_model <- readRDS("./data//svm.rds")
 
+# Load libraries.
 library(shiny)
 library(dplyr)
 library(bslib)
-
+library(caret)
+library(kernlab)
+library(ranger)
 
 ui <- page_fillable(
   "Stroke Prediction",
@@ -79,13 +74,7 @@ ui <- page_fillable(
 )
 
 
-# patient = tribble(~gender, ~age, ~hypertension, ~heart_disease, 
-#                   ~ever_married, ~work_type, ~Residence_type, 
-#                   ~avg_glucose_level, ~bmi, ~smoking_status, 
-#                   "Male", 81, TRUE, TRUE, TRUE, "Private", "Urban", 300, 28.6, "smokes")
-# 
-
-# Define server logic required to draw a histogram
+# Define server logic.
 server <- function(input, output) {
 
   patient_data <- reactive({

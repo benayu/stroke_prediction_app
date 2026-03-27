@@ -1,17 +1,8 @@
----
-title: "How I built a stroke prediction app"
-date: 2026-03-27
-draft: false
-summary: "I made a stroke prediction app with R."
-tags: [""]
----
-
-This is how I built a stroke prediction app from scratch, without asking AI.
-
+This is how I built a stroke prediction app from scratch.
 
 ### Setup
 
-Prepare the libraries.
+Load the libraries.
 
     library(tidyverse)
 
