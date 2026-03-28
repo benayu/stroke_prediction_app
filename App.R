@@ -13,6 +13,8 @@ library(bslib)
 library(caret)
 library(kernlab)
 library(ranger)
+library(caTools)
+library(naivebayes)
 
 ui <- page_fillable(
   "Stroke Prediction",
